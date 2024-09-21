@@ -3,8 +3,8 @@
 # Информация о системе
 echo "Информация о системе:"
 
-echo "Операционная система: $(uname -s)"
-echo "Версия системы: $(uname -v)"
+echo "Операционная система: $(uname --all | awk '{print $1 $2}')"
+echo "Версия системы: $(cat /etc/os-release | grep -m 1 -i VERSION | awk -F'=' '{print $2}')"
 echo "Версия ядра: $(uname -r)"
 echo "Архитектура ядра: $(uname -m)"
 
